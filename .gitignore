@@ -1,0 +1,15 @@
+.env
+.env.*
+*.env
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+env/
+venv/
+*.log
+mongod.log
+Dockerfile
+docker-compose*.yml
+candidate_kit/
