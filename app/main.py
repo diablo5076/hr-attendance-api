@@ -6,7 +6,9 @@ Env:  MONGO_URI, MONGO_DB (read from environment, with local .env fallback)
 """
 import calendar
 import os
+import json
 import re
+from bson import json_util
 from contextlib import asynccontextmanager
 from datetime import date, datetime, timedelta, timezone
 from decimal import Decimal, ROUND_HALF_UP
@@ -1134,7 +1136,7 @@ def explain_endpoint(
         return {
             "endpoint": endpoint,
             "collection": "attendance_logs",
-            "explain": explain_result,
+            "explain": json.loads(json_util.dumps(explain_result)),
         }
 
     elif endpoint == "employee_monthly":
@@ -1157,7 +1159,7 @@ def explain_endpoint(
         return {
             "endpoint": endpoint,
             "collection": "attendance_logs",
-            "explain": explain_result,
+            "explain": json.loads(json_util.dumps(explain_result)),
         }
 
     elif endpoint == "department_summary":
@@ -1183,7 +1185,7 @@ def explain_endpoint(
         return {
             "endpoint": endpoint,
             "collection": "employees",
-            "explain": explain_result,
+            "explain": json.loads(json_util.dumps(explain_result)),
         }
 
     elif endpoint == "late_leaderboard":
@@ -1206,7 +1208,7 @@ def explain_endpoint(
         return {
             "endpoint": endpoint,
             "collection": "attendance_logs",
-            "explain": explain_result,
+            "explain": json.loads(json_util.dumps(explain_result)),
         }
 
     elif endpoint == "department_trend":
@@ -1234,7 +1236,7 @@ def explain_endpoint(
         return {
             "endpoint": endpoint,
             "collection": "attendance_logs",
-            "explain": explain_result,
+            "explain": json.loads(json_util.dumps(explain_result)),
         }
 
     else:
