@@ -897,7 +897,6 @@ def late_leaderboard(
             }
         },
         {"$match": {"rank": {"$lte": limit}}},
-        {"$sort": {"total_late_minutes": -1, "emp_code": 1}},
         {
             "$project": {
                 "_id": 0,
@@ -909,6 +908,7 @@ def late_leaderboard(
                 "late_count": 1,
             }
         },
+        {"$sort": {"total_late_minutes": -1, "emp_code": 1}},
     ])
 
     items = list(db.attendance_logs.aggregate(pipeline))
